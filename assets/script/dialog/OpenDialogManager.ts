@@ -12,8 +12,8 @@ export class OpenDialogManager extends Component {
     }
 
     public async showDialog(path:string){
-        var prefabPromise = await ResUtils.loadAsync(path,Prefab);
-        var nodePrefab = instantiate(prefabPromise);
+        let prefabPromise = await ResUtils.loadAsync(path,Prefab);
+        let nodePrefab = instantiate(prefabPromise);
         this.dialogManager.showDialog(nodePrefab.getComponent(BaseDialog))
     }
 }

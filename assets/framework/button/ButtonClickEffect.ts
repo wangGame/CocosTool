@@ -10,7 +10,7 @@ export class ButtonClickEffect extends Component {
     public clickCallback: (() => void) | null = null;
 
     start() {
-        var btnComponent = this.node.getComponent(Button)
+        const btnComponent = this.node.getComponent(Button)
         if (!btnComponent){
             this.node.addComponent(Button)
         }

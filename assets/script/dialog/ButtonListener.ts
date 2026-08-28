@@ -9,7 +9,7 @@ export class ButtonListener extends Component {
     uiManager:OpenDialogManager
 
     start() {
-        var btnEffect = this.node.getComponent(ButtonClickEffect);
+        let btnEffect = this.node.getComponent(ButtonClickEffect);
         if (!btnEffect) {
             btnEffect = this.node.addComponent(ButtonClickEffect);
         }

@@ -7,15 +7,15 @@ const { ccclass, property } = _decorator;
 export class EndDialogScript extends BaseDialog {
     start() {
         super.start();
-        var okBtn = this.node.getChildByName("okBtn");
-        var okEffect = okBtn.addComponent(ButtonClickEffect)
+        let okBtn = this.node.getChildByName("okBtn");
+        let okEffect = okBtn.addComponent(ButtonClickEffect)
         okEffect.clickCallback = ()=>{
             this.closeDialog();
         }
     }
 
-    private closeDialog(){
-        var animation = this.node.getComponent(Animation)
+    public closeDialog(){
+        let animation = this.node.getComponent(Animation)
         animation.once(Animation.EventType.FINISHED, () => {
             this.node.destroy();
         }, this);

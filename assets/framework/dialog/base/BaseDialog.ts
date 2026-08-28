@@ -21,7 +21,7 @@ export class BaseDialog extends Component {
     @property({type:Node,tooltip:"基类Node"})
     protected dialogGroup:Node;
     @property({type:Enum(Type)})
-    protected dialogType:Type = Type.HideOldShowCurrent
+    protected _dialogType:Type = Type.HideOldShowCurrent
     @property
     protected shadowEnable = true;
     @property({range:[0,1,0.01]})
@@ -45,20 +45,28 @@ export class BaseDialog extends Component {
     protected offsetY;
     protected _dialogManager:DialogManager
     start() {
-        // if(this.prefabPath == null){
-        //     this.dialogGroup = new Node();
-        // }else{
-        //     const prefab = ResUtils.loadSync(
-        //         "prefab/Player",
-        //         Prefab
-        //     );
-        //     this.dialogGroup = instantiate(prefab);
-        // }
-        // this.node.addChild(this.dialogGroup)
+
     }
 
     public set dialogManager(dialogManager:DialogManager){
         this._dialogManager = dialogManager
+    }
+
+    public get dialogType(){
+        return this._dialogType;
+    }
+
+    public closeDialog(){
+
+    }
+
+    hideDialog() {
+
+
+    }
+
+    show() {
+
     }
 }
 
