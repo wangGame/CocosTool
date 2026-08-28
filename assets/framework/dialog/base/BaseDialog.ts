@@ -3,7 +3,9 @@ import { _decorator,
     Node,
     Enum, 
     instantiate,
-    Prefab
+    Prefab,
+    tween,
+    Vec3
 } from 'cc';
 import { DialogManager } from '../DialogManager';
 import { Type } from '../Type';
@@ -61,12 +63,19 @@ export class BaseDialog extends Component {
     }
 
     hideDialog() {
-
-
+        tween(this.dialogGroup)
+            .to(0.3,
+                {
+                    scale : new Vec3(0,0,1)
+                }).start()
     }
 
     show() {
-
+        tween(this.dialogGroup)
+            .to(0.3,
+                {
+                    scale : new Vec3(1,1,1)
+                }).start()
     }
 }
 

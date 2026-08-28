@@ -5,17 +5,24 @@ const { ccclass, property } = _decorator;
 
 @ccclass('EndDialogScript')
 export class EndDialogScript extends BaseDialog {
+    onLoad(){
+
+    }
+
     start() {
         super.start();
-        let okBtn = this.node.getChildByName("okBtn");
-        let okEffect = okBtn.addComponent(ButtonClickEffect)
+        const rootNode = this.node.getChildByName("rootNode");
+        console.log(rootNode);
+        this.dialogGroup = rootNode;
+        const okBtn = this.dialogGroup.getChildByName("okBtn");
+        const okEffect = okBtn.addComponent(ButtonClickEffect)
         okEffect.clickCallback = ()=>{
-            this.closeDialog();
+            this._dialogManager.closeDialog(this)
         }
     }
 
     public closeDialog(){
-        let animation = this.node.getComponent(Animation)
+        let animation = this.dialogGroup.getComponent(Animation)
         animation.once(Animation.EventType.FINISHED, () => {
             this.node.destroy();
         }, this);
