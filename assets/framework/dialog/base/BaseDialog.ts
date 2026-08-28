@@ -58,6 +58,18 @@ export class BaseDialog extends Component {
         return this._dialogType;
     }
 
+    public get isShadowEnabled():boolean {
+        return this.shadowEnable;
+    }
+
+    public get dialogShadowOpacity():number {
+        return this.shadowOpacity;
+    }
+
+    public get dialogShadowDuration():number {
+        return this.shadowDuration;
+    }
+
     public closeDialog(){
 
     }
