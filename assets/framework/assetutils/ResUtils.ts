@@ -19,9 +19,16 @@ export class ResUtils {
 
     public static loadSync<T extends Asset>(
         path: string,
-        type: Constructor<T>
-    ): T | null {
-        return resources.get(path, type);
+        type: Constructor<T>,
+        callback: (asset:T) => void
+    ) {
+        resources.load(path, type, (err, asset) => {
+            if (err) {
+                console.error(`资源加载失败: ${path}`, err);
+                return;
+            }
+            callback?.(asset)
+        });
     }
 }
 

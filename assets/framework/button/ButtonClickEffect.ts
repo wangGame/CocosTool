@@ -50,7 +50,7 @@ export class ButtonClickEffect extends Component {
     }
 
     onTouchClick() {
-        console.log("click call back --->")
+        console.log("click call back --->"+this.clickCallback)
         this.clickCallback?.();
     }
 }
