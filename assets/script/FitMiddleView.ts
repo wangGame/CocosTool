@@ -1,4 +1,4 @@
-import { view,_decorator,UITransform,Sprite, Component, Node,math } from 'cc';
+import { view,_decorator,Canvas,director,UITransform,Sprite, Component, Node,math } from 'cc';
 import {GameViewport} from "db://assets/script/cocosfit/GameViewport";
 const { ccclass, property } = _decorator;
 
@@ -16,8 +16,13 @@ export class FitMiddleView extends Component {
 
     onResize() {
         var worldSize = GameViewport.getWorldSize();
-        var component = this.bg.getComponent(UITransform);
-        component.setContentSize(worldSize.width,worldSize.height)
+
+        const canvas = director.getScene()?.getComponentInChildren(Canvas);
+        console.log(canvas)
+        var canVasTransfrom = canvas.getComponent(UITransform);
+        canVasTransfrom.setContentSize(worldSize.width,worldSize.height)
+
+
 
 
         // 尺寸发生变化
