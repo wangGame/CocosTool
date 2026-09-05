@@ -17,6 +17,9 @@ export class CanvasView extends Component {
             view.getDesignResolutionSize();
         const designRatio =
             designSize.width / designSize.height;
+
+        console.log(screen.width+" ====== "+screen.height);
+
         if (screenRatio > designRatio) {
             // 屏幕更宽
             // 固定高度，宽度扩展

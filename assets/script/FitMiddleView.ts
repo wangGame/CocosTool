@@ -10,6 +10,8 @@ export class FitMiddleView extends Component {
 
     @property({type:Sprite})
     private bg:Sprite
+    @property({type:Sprite})
+    private middle:Sprite
 
     start() {
     }
@@ -23,22 +25,25 @@ export class FitMiddleView extends Component {
         canVasTransfrom.setContentSize(worldSize.width,worldSize.height)
 
 
+        var middleTransfrom = this.middle.getComponent(UITransform);
+        var widthM = middleTransfrom.contentSize.width;
+        var heightM = middleTransfrom.contentSize.height;
 
 
         // 尺寸发生变化
         const size = view.getVisibleSize();
         console.log("width :"+size.width+"   height"+ size.height);
 
-        const contentWidth = size.width - (180.0 * 2.0);
+        const contentWidth = size.width - (10 * 2.0);
 
         console.log("contentWidth:"+contentWidth);
 
-        const contentHeight = size.height - (320.0 * 2.0);
+        const contentHeight = size.height - (10 * 2.0);
 
         console.log("height :"+contentHeight);
 
-        const rateWidth = contentWidth / (720.0);
-        const rateHeight = contentHeight / (1080.0);
+        const rateWidth = contentWidth / (widthM);
+        const rateHeight = contentHeight / (heightM);
 
         console.log("rateHeight:"+rateHeight);
         console.log("rateWidth:"+rateWidth);
