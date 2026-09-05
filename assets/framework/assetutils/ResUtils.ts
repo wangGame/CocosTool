@@ -1,6 +1,7 @@
 import { _decorator, Constructor,Asset,resources} from 'cc';
 
 export class ResUtils {
+    //同步加载
     public static loadAsync<T extends Asset>(
         path: string,
         type: Constructor<T>
@@ -16,7 +17,7 @@ export class ResUtils {
             });
         });
     }
-
+    //异步加载
     public static loadSync<T extends Asset>(
         path: string,
         type: Constructor<T>,
