@@ -8,25 +8,29 @@ export class ResBtn extends Component {
     @property({type: Sprite})
     protected spritex: Sprite;
     async start() {
-        var loadAsyncBtn = this.node.getChildByName("loadAsyncBtn");
-        var loadAsyncBtnEffect = loadAsyncBtn.getComponent(ButtonClickEffect);
+        const loadAsyncBtn = this.node.getChildByName("loadAsyncBtn");
+        const loadAsyncBtnEffect = loadAsyncBtn.getComponent(ButtonClickEffect);
         loadAsyncBtnEffect.clickCallback = async ()=> {
             console.log("loadAsyncBtnEffect start");
-            var promise = await ResUtils.loadAsync("rank/profile/anniu/spriteFrame", SpriteFrame);
+            var promise = await ResUtils.getInstane().loadAsync("rank/profile/anniu/spriteFrame", SpriteFrame);
             this.spritex.getComponent(Sprite).spriteFrame = promise
             console.log("show ")
             console.log("loadAsyncBtnEffect end");
         }
-        var loadSync = this.node.getChildByName("loadSync");
-        var loadSyncBtnEffect = loadSync.getComponent(ButtonClickEffect);
+        const loadSync = this.node.getChildByName("loadSync");
+        const loadSyncBtnEffect = loadSync.getComponent(ButtonClickEffect);
         loadSyncBtnEffect.clickCallback = ()=>{
             console.log("loadAsyncBtnEffect start");
-            ResUtils.loadSync("rank/profile/anniu/spriteFrame", SpriteFrame,(sprite)=>{
+            ResUtils.getInstane().loadCallBack("rank/profile/anniu/spriteFrame", SpriteFrame,(sprite)=>{
                 console.log("show ")
                 this.spritex.getComponent(Sprite).spriteFrame = sprite
             });
-
             console.log("loadAsyncBtnEffect end");
+        }
+        var loadAllBtnEffect = this.node.getChildByName("loadAll").getComponent(ButtonClickEffect);
+        loadAllBtnEffect.clickCallback = ()=>{
+
+
         }
     }
 

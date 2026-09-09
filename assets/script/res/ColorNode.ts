@@ -7,7 +7,7 @@ export class ColorNode extends Component {
     async start() {
         const nodeSprite= this.node.addComponent(Sprite);
         nodeSprite.sizeMode = Sprite.SizeMode.CUSTOM
-        const promise = await ResUtils.loadAsync("common/white/spriteFrame",SpriteFrame);
+        const promise = await ResUtils.getInstane().loadAsync("common/white/spriteFrame",SpriteFrame);
         nodeSprite.spriteFrame = promise;
         nodeSprite.type = Sprite.Type.SLICED;
         const uiTransform = this.node.getComponent(UITransform);

@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "id": "story-1788836651348",
+    "title": "新故事",
+    "description": "",
+    "author": "",
+    "version": "1.0.0",
+    "createdAt": "2026-09-08T03:04:11.348Z",
+    "updatedAt": "2026-09-08T03:05:14.501Z"
+  },
+  "characters": [
+    {
+      "id": "char-1788836661399",
+      "type": "character",
+      "name": "辛巴",
+      "avatar": "",
+      "color": "#3498db",
+      "description": "玩"
+    }
+  ],
+  "variables": [],
+  "nodes": [
+    {
+      "id": "node-start-1788836651348",
+      "type": "start",
+      "x": 214,
+      "y": 313,
+      "content": "故事开始",
+      "speakerId": "",
+      "actions": [],
+      "transitions": [
+        {
+          "toNodeId": "node-1788836683102",
+          "label": "继续"
+        }
+      ]
+    },
+    {
+      "id": "node-1788836683102",
+      "type": "dialogue",
+      "x": 448,
+      "y": 338,
+      "content": "你号",
+      "speakerId": "char-1788836661399",
+      "targetSpeakerIds": [],
+      "conditions": [],
+      "actions": [],
+      "transitions": []
+    }
+  ],
+  "startNodeId": "node-start-1788836651348"
+}
